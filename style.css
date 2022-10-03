@@ -17,6 +17,7 @@
      --backgroud-color: #414141;
      --grey-text: #525252;
   }
+/* Accessing Fonts Locally */
 
   @font-face {
     font-family: 'Ruhl';
@@ -80,6 +81,7 @@
   }
 
   /*  Navigation Section */
+
   .main-head{
     box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.1);
     z-index: 2; /* To Solve Issue Of Box shadow Over Image Background Color */
@@ -158,6 +160,7 @@
     animation: plants-entrance 1.5s ease-in-out 0.5s forwards ,
     plants-movements 2.5s alternate-reverse ease infinite ;
     transform-origin: bottom;
+    max-height: 80%;
   }
 
   .plant2{
@@ -177,6 +180,11 @@
     
   }
 
+  .burger, .menu-check{
+    display: none;
+
+  }
+
   @keyframes plants-entrance {
     from{
         transform: translateY(10%) rotateZ(-10deg) rotateX(-90deg);
@@ -194,6 +202,90 @@
         transform:  rotateZ(0deg);
     }
   }
+
+  /*  Media Queries   */
+@media  screen and (max-width: 842px)
+
+{
+  .hero{
+    width: 100%;
+
+  }
+  .hero-introduction p{
+    padding: 5rem 3rem;
+  }
+  /* Burger Thing */
+  .burger{
+    position: relative;
+    display: block;
+    
+    
+  }
+  .burger span {
+    padding: 0.2rem 2rem;
+    background: var(--grey-text);
+    margin: 0.5rem 2.5rem;
+    display: block;
+    transition: all 0.5s ease;
+  }
+
+  .nav-links a {
+    color: white;
+    font-size: var(--header1);
+    text-decoration: underline;
+  }
+  .nav-links{
+    background: var(--backgroud-color);
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 100%;
+    flex-direction: column;
+    align-items: center;
+    transition: transform 1s ease;
+  }
+  .menu-check{
+    display: block;
+    position: absolute;
+    top: 50%;
+    right: 5%;
+    transform: translate(5%,-50%);
+    width: 5rem;
+    height: 5rem;
+    cursor: pointer;
+    opacity: 0;
+    z-index: 20;
+  }
+  .menu-check:checked + .nav-links
+  {
+    transform: translateX(-100%);
+  }
+
+  .menu-check:checked ~ .burger span
+  {
+    transform: translate(-100%);
+    background-color: white;
+  }
+
+  .menu-check:checked ~ .burger span:nth-child(1)
+  {
+    transform: rotateZ(45deg) translateY(300%);
+  }
+  .menu-check:checked ~ .burger span:nth-child(2)
+  {
+    opacity: 0; 
+    
+  }
+
+  .menu-check:checked ~ .burger span:nth-child(3)
+  {
+    transform: rotateZ(-45deg) translateY(-300%);
+  }
+
+}
+
+  
 
 
 
