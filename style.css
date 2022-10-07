@@ -12,10 +12,11 @@
      --header3: calc(3rem + 1vw);
      --header4: calc(2.4rem + 1vw);
      --text: calc(1.5rem + 1vw);
-     --big: calc(2.4rem + 1vw);
+     --big: calc(6rem + 1vw);
      --special-color: #906272;
      --backgroud-color: #414141;
      --grey-text: #525252;
+     scroll-behavior: smooth;
   }
 /* Accessing Fonts Locally */
 
@@ -183,7 +184,7 @@
     
   }
 
-  .burger, .menu-check{
+  .burger{
     display: none;
 
   }
@@ -282,6 +283,72 @@
 
 }
 
+/* Contact Section */
+
+.contact{
+  display: flex;
+  min-height: 90vh;
+  flex-wrap: wrap;
+}
+.form-wrapper{
+flex: 3 1 40rem;
+}
+.form-wrapper h2{
+  margin: 5rem 0rem;
+  }
+
+.form-wrapper span{
+  font-size: var(--big);
+  color: var(--special-color);
+}
+.form-wrapper label{
+  display: flex;
+}
+.form-wrapper input
+{
+  display: flex;
+  background-color: var(--backgroud-color);
+  margin: 3rem 0rem;
+  border: none;
+  padding: 1rem;
+  color: white;
+}
+
+.form-wrapper button{
+  border: none;
+  background-color: var(--special-color);
+  color: white;
+  padding: 1rem 8rem;
+  cursor: pointer;
+  width: 100%;
+}
+.contact img{
+  flex: 1 1 40rem;
+}
+
+/* Footer Section */
+footer{
+  background-color: var(--backgroud-color);
+  color: white;
+  display: flex;
+  padding: 3rem 5%;
+  align-items: center;
+  flex-wrap: wrap;
+  
+}
+footer ul{
+  display: flex;
+  flex: 1 1 40rem;
+  justify-content: space-between;
+  align-items: center;
+}
+footer h4{
+  flex: 3 1 40rem;
+  font-size: calc(1.4rem + 1vw);
+}
+
+
+
 
   /*  Media Queries   */
 @media  screen and (max-width: 842px)
@@ -298,9 +365,9 @@
   .burger{
     position: relative;
     display: block;
-    
-    
+    cursor: pointer;
   }
+
   .burger span {
     padding: 0.2rem 2rem;
     background: var(--grey-text);
@@ -325,42 +392,26 @@
     align-items: center;
     transition: transform 1s ease;
   }
-  .menu-check{
-    display: block;
-    position: absolute;
-    top: 50%;
-    right: 5%;
-    transform: translate(5%,-50%);
-    width: 5rem;
-    height: 5rem;
-    cursor: pointer;
-    opacity: 0;
-    z-index: 20;
-  }
-  .menu-check:checked + .nav-links
+  
+  .nav-open
   {
     transform: translateX(-100%);
   }
 
-  .menu-check:checked ~ .burger span
-  {
-    transform: translate(-100%);
-    background-color: white;
-  }
-
-  .menu-check:checked ~ .burger span:nth-child(1)
+  .toggle .line1
   {
     transform: rotateZ(45deg) translateY(300%);
+    background: white;
   }
-  .menu-check:checked ~ .burger span:nth-child(2)
+  .toggle .line2
   {
-    opacity: 0; 
-    
+    opacity: 0;
   }
 
-  .menu-check:checked ~ .burger span:nth-child(3)
+  .toggle .line3
   {
     transform: rotateZ(-45deg) translateY(-300%);
+    background: white;
   }
 
   /* About Section */
@@ -380,8 +431,32 @@
     display: none;
    }
 
+   /*Contact */
+   .contact img{
+    display: none;
+   }
+   footer ul{
+    order: 1;
+   }
+   footer h4{
+    order: 2;
+    text-align: center;
+    padding: 1rem;
+  }
 }
 
+  
+@media screen and (min-width: 1700px)
+{
+ html{
+  --header1: 3rem;
+  --header2: 5rem;
+  --header3: 4rem;
+  --header4: 3rem;
+  --big:8rem;
+  --text: 3rem;
+ }
+}
   
 
 
